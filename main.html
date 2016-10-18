@@ -1,0 +1,284 @@
+<doctype! html>
+<html>
+	<head>
+		<title> Pied Piper </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="jquery.js"></script>
+	</head>
+	<style>
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+    overflow:hidden;
+}
+
+#explore {
+    display:block;
+    height: 7.3em;
+    width: 3em;
+    position: fixed;
+    vertical-align: center;
+    margin-top: 20%;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-y: hidden;
+    transition: 0.4s;
+    padding-top: 4em;
+
+}
+
+#explore .openbtn {
+    position: absolute;
+    top:5%;
+    text-decoration: none;
+    color:#ffffff;
+    vertical-align: center;
+    right: 0.5em;
+    font-family:verdana;
+    font-size: 1.2em;
+    transition: 0.5s;
+    margin-left: 3em;
+
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.4s;
+    padding-top: 6em;
+}
+
+.sidenav a {
+    padding: 0.6em 0.6em 0.6em 0.8em;
+    text-decoration: none;
+    font-size: 1.52em;
+    color: #818181;
+    display: block;
+    transition: 0.5s
+}
+
+
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    text-decoration:none;
+    top: 0;
+    right: 0.5em;
+    font-size: 1.4em;
+    
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 0em;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 216px;
+}
+#header{
+    position: static;
+}
+h2{
+	font-family: monospace;
+	font-size: 4em;
+	margin:0em;
+	text-align: center;
+	font-variant: small-caps;
+}
+#pp-left{
+    float: right;
+    display:inline;
+}
+#menu{
+    float:left;
+    display: inline;
+}
+#search{
+    
+    display: block;
+
+}
+#search input{
+    margin-top:0.6em;
+}
+#search input[type=text] {
+    width: 60%;
+    /*background-color: rgba(1,1,1,0.7);*/
+    border: 0.1em solid #2f2f2f;
+    border-radius: 0.08em;
+    font-size: 1.4em;
+    /*background-color: white;*/
+    background-image: url('search.png');
+    background-position: 0.05em 0.05em;
+    background-size: 1.7em;
+    background-repeat: no-repeat;
+
+    padding: 0.3em 0.8em 0.3em 1.6em;
+    -webkit-transition: width 0.4s ease-in-out;
+    /*transition: width 0.4s ease-in-out;*/
+}
+#search input[type=text]:hover{
+     width: 60%;
+    border: 0.1em solid #2f2f2f;
+    border-radius: 0.08em;
+}
+
+#search input[type=text]:focus {
+    width: 100%;
+    border: 0.1em solid #2f2f2f;
+    border-radius: 0.08em;
+}
+
+.h3groups{
+    text-align: center;
+    font-variant: small-caps;
+}
+
+// slideshow image placement
+#slideshow{
+    min-height: 40em;
+}
+
+#slideshow img{
+    width:16em;
+    height:20em;
+    margin-left: 50%;
+}
+
+</style>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Genres</a>
+  <a href="#">Albums</a>
+  <a href="#">Artists</a>
+  <a href="#">Trending</a>
+  <a href="#">Most Popular</a>
+  
+</div>
+
+<div id="explore" onclick="openNav()">
+
+  <a href="javascript:void(0)"  class= "openbtn" >E<br>X<br>P<br>L<br>O<br>R<br>E</a>
+  
+</div>
+
+
+
+
+<div id="main">
+    <div id="header">
+    <h2 id="pp-left">Pied Piper</h2>
+    <!--<span id="menu"style="font-size:1.3em;cursor:pointer;" onclick="openNav()"><h5>&#9776; MENU &nbsp;&nbsp;<h5></span>-->
+  	
+    
+    </div>
+
+    
+    <br><br><br><br><br>
+<form id="search">
+        <input type="text" name="search" placeholder=" Search...">
+</form>
+<br>
+<h3 class = "h3groups"> Trending on Pied Piper</h3>
+<div id="trending">
+    
+    <div id="slideshow">
+        <img src="#" style="display:none;margin-left:40%" id="img">
+    </div>  
+</div>
+
+
+<img src="search.png" >
+
+<img src="search.png" >
+
+<img src="search.png" >
+
+<img src="search.png" >
+
+<img src="search.png" >
+
+<img src="search.png" >
+
+</div>
+<script>
+function openNav() {
+    
+    //document.getElementById("menu").style.display="none";
+    //document.getElementById("explore").style.display="none";
+    document.getElementById("explore").style.width = "0em";
+    setTimeout(transit1,900);
+    function transit1(){
+    document.getElementById("mySidenav").style.width = "11em";
+    document.getElementById("mySidenav").style.height = "100%";
+    document.getElementById("mySidenav").style.position = "fixed";
+    document.getElementById("main").style.marginLeft = "11em";
+    }
+    //document.getElementById("main").style.marginRight = "22em";
+    //document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";    
+    setTimeout(transit2,900);
+    function transit2(){
+
+    document.getElementById("explore").style.width = "3em";
+
+    }    
+
+    //document.getElementById("menu").style.display="inline";
+    //document.getElementById("main").style.marginRight = "0";
+
+    //document.getElementById("explore").style.display="block";
+    //document.body.style.backgroundColor = "white";
+}
+
+    var trending_slideshow = document.getElementById("trending").childNodes[0];
+    var img = 'trending-slideshow-im-';
+    var fileNo = 1;
+    var ext = '.jpg';
+    slideshow();
+    setInterval(slideshow,4500);
+        function slideshow(){
+            if(fileNo==5){
+                fileNo=1;
+            }
+            
+                //console.log(String(x));
+                var image_elem = document.getElementById("img");
+                image_elem.src = img + String(fileNo) + ext;             
+                            
+                
+                $(image_elem).fadeIn(2250);
+                $(image_elem).fadeOut(2250);
+            
+                
+                fileNo++;
+            
+        }
+
+
+
+</script>
+     
+</body>
+
+
+
+</html>
